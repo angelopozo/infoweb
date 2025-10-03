@@ -1,0 +1,146 @@
+
+.panorama-grid {
+  container-name: panorama;
+}
+
+@container panorama (min-width: 40rem) {
+  .panorama-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@container panorama (min-width: 62rem) {
+  .panorama-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.hero__stats {
+  container-name: stats;
+}
+
+@container stats (min-width: 38rem) {
+  .hero__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@container stats (min-width: 56rem) {
+  .hero__stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.chapter__layout {
+  container-name: chapter;
+}
+
+@container chapter (min-width: 48rem) {
+  .chapter__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: clamp(2rem, 4vw, 3rem);
+  }
+}
+
+@container chapter (min-width: 56rem) {
+  .chapter__insights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.2rem, 3vw, 2rem);
+  }
+}
+
+@container chapter (min-width: 70rem) {
+  .chapter__insights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.data-grid {
+  container-name: data;
+}
+
+@container data (min-width: 60rem) {
+  .data-grid {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.8fr);
+    align-items: start;
+  }
+
+  .data-summary {
+    gap: clamp(1.2rem, 3vw, 2rem);
+  }
+}
+
+.actions-grid {
+  container-name: actions;
+}
+
+@container actions (min-width: 46rem) {
+  .actions-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@container actions (min-width: 70rem) {
+  .actions-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.footer-grid {
+  container-type: inline-size;
+  container-name: footer;
+}
+
+@container footer (min-width: 50rem) {
+  .footer-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 52rem) {
+  .nav-links {
+    position: static;
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(1rem, 2.5vw, 2rem);
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .cta-link {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 64rem) {
+  .hero__content {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .hero__content > * {
+    grid-column: 1 / span 6;
+  }
+
+  .hero__stats {
+    grid-column: 7 / span 6;
+  }
+
+  .chapter__visual {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-toggle,
+  .btn,
+  .cta-link,
+  .btn-top {
+    transition: none !important;
+  }
+}
