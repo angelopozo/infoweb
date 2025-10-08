@@ -1,6 +1,12 @@
 body{
     margin: 0 0 0;
-    
+
+}
+
+:root {
+    --nav-bg: rgba(8, 24, 47, 0.85);
+    --nav-text: #f5f7fa;
+    --accent: #41d3bd;
 }
 
 .hero{
@@ -37,7 +43,103 @@ body{
 
 .navbar{
     width: 100%;
-    height: 20%;
+    padding: 1.25rem 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+.nav {
+    width: min(1100px, 92%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.5rem;
+    border-radius: 16px;
+    backdrop-filter: blur(14px);
+    background: var(--nav-bg);
+    color: var(--nav-text);
+    box-shadow: 0 12px 30px rgba(6, 18, 33, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav__links {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.2rem, 2.8vw, 2.5rem);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__link {
+    position: relative;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.nav__link::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: -0.35rem;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+    background: var(--accent);
+}
+
+.nav__link:hover,
+.nav__link:focus {
+    color: var(--accent);
+}
+
+.nav__link:hover::after,
+.nav__link:focus::after {
+    transform: scaleX(1);
+}
+
+.nav__sources {
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--nav-text);
+    background: transparent;
+    text-decoration: none;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.nav__sources:hover,
+.nav__sources:focus {
+    background: var(--accent);
+    color: #04192f;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .nav__links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav__sources {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 .reto{
