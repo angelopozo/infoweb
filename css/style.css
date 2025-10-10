@@ -469,5 +469,8 @@ strong {
   font-size: 0.9rem;
 }
 
-
+/* Smooth scroll*/ 
+html {
+  scroll-behavior: smooth;
+}
 
