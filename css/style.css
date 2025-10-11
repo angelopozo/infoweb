@@ -170,8 +170,11 @@ body {
 /* Section headers */
 
 .section-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     width: 100%;
-    min-height: 180px;
+    height: 140px;
     display: flex;
     justify-content: center;
     align-items: center;
