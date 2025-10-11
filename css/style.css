@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -17,7 +17,7 @@ body{
     --accent: #41d3bd;
 }
 
-.hero{
+.hero {
     height: 100vh;
     width: 100%;
 }
@@ -41,11 +41,11 @@ body{
     font-weight: 900;
 }
 
-.ambientales{
+.ambientales {
     color: rgb(0, 59, 0);
 }
 
-.navbar{
+.navbar {
     width: 100%;
     padding: 1.25rem 0;
     display: flex;
@@ -66,9 +66,9 @@ body{
     justify-content: center;
     padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
     border-radius: 0;
-    
+
     color: var(--nav-text);
-    
+
 }
 
 .nav__tiles {
@@ -102,18 +102,14 @@ body{
     width: 3.25rem;
     height: 3.25rem;
     border-radius: 50%;
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem; /* tamaño del emoji */
     background: linear-gradient(135deg, rgba(65, 211, 189, 0.15), rgba(255, 255, 255, 0.08));
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
     transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
-}
-
-.nav__icon svg {
-    width: 1.5rem;
-    height: 1.5rem;
-    fill: currentColor;
 }
 
 .nav__label {
@@ -164,71 +160,71 @@ body{
 /* Section headers */
 
 .section-header {
-  width: 100%;
-  min-height: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+    width: 100%;
+    min-height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
-  background: center cover no-repeat;
-  background-image: var(--bg);
-  background-size: cover;
-  background-color: rgba(3, 233, 3, 0.05);
-  background-blend-mode: overlay;
+    background: center cover no-repeat;
+    background-image: var(--bg);
+    background-size: cover;
+    background-color: rgba(3, 233, 3, 0.05);
+    background-blend-mode: overlay;
 }
 
 .section-header-title {
-  position: relative;
-  color: rgb(255, 255, 255);
-  font-size: 2rem;
-  font-weight: 800;
-  padding: 1rem 1.5rem;
+    position: relative;
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+    font-weight: 800;
+    padding: 1rem 1.5rem;
 }
 
 /* Section content */
 
 figcaption {
-  font-size: 0.9rem;
-  font-weight: normal;
-  color: grey;
-  margin-top: 0.5rem;
-  text-align: center;
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: grey;
+    margin-top: 0.5rem;
+    text-align: center;
 }
 
 /* Agua */
 .section-content.agua {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;   
-  margin: 0 auto;      
-  padding: 2rem 1rem;      
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
 }
 
 .section-content.agua .section-resumen {
-  font-size: 1.1rem;         
-  font-weight: bold;            
-  line-height: 1.8;          
-  color: black;              
-  margin: 0 auto; 
-  max-width: 800px;          
-  padding: 0 1.5rem;   
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 1.8;
+    color: black;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 0 1.5rem;
 }
 
 .section-content.agua .section-resumen img {
-  display: block;          
-  max-width: 100%;         
-  width: 100%;             
-  max-width: 800px;       
-  margin: 2rem auto 0;   
-  border-radius: 10px;     
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto 0;
+    border-radius: 10px;
 }
 
 .section-subtitle {
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
-    color: green; 
+    color: green;
     margin-top: 2rem;
 }
 
@@ -238,53 +234,54 @@ figcaption {
 
 
 .blocks-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 2rem;                             
-  max-width: 900px;                       
-  margin: 0 auto;  
-                          
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+
 }
 
 .block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
 }
 
 .block img {
-  width: 100%;          
-  height: 230px;       
-  object-fit: cover;   
-  transition: filter 0.3s ease;
-  transform-origin: center;
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+    transform-origin: center;
 }
 
 .block:hover img {
-  filter: brightness(1.15);
+    filter: brightness(1.15);
 }
+
 .block:hover h4 {
-  color: green; 
+    color: green;
 }
 
 .block-text {
-  padding: 1rem 1.5rem;
-  font-size: 0.8rem;
-  font-weight: lighter;
-  line-height: 1.6;
-  color: rgb(46, 45, 45);
-  text-align: left; 
-  border: solid 1px grey;
-  border-top: none;
-  flex-grow: 1;
+    padding: 1rem 1.5rem;
+    font-size: 0.8rem;
+    font-weight: lighter;
+    line-height: 1.6;
+    color: rgb(46, 45, 45);
+    text-align: left;
+    border: solid 1px grey;
+    border-top: none;
+    flex-grow: 1;
 }
 
 .block-text h4 {
-  font-size: 1.1rem;
-  font-weight: bolder;
-  color: black;
+    font-size: 1.1rem;
+    font-weight: bolder;
+    color: black;
 }
 
 
@@ -295,18 +292,18 @@ figcaption {
 
 .split-layout {
     display: flex;
-    flex-direction: column; 
-    gap: 2rem; 
+    flex-direction: column;
+    gap: 2rem;
     max-width: 1200px;
-    margin: auto; 
-    padding: 0 1rem;   
+    margin: auto;
+    padding: 0 1rem;
 }
 
 @media (min-width: 1200px) {
-  .split-layout {
-      flex-direction: row;
-      align-items: center; 
-  } 
+    .split-layout {
+        flex-direction: row;
+        align-items: center;
+    }
 }
 
 .split-content {
@@ -314,7 +311,7 @@ figcaption {
 }
 
 .split-content ul {
-    list-style: none; 
+    list-style: none;
 }
 
 .split-content li {
@@ -328,31 +325,32 @@ figcaption {
     content: "●";
     position: absolute;
     left: 0;
-    color: green; 
+    color: green;
     font-weight: bold;
 }
 
 strong {
-  color: green;
+    color: green;
 }
 
 .split-content img {
-    width: 100%;       
+    width: 100%;
     height: auto;
-    display: block;   
-    border-radius: 8px; 
+    display: block;
+    border-radius: 8px;
 }
 
 @media (max-width: 1200px) {
-  .split-content img {
-    width: 50%;       
-    height: auto;
-    margin:auto;
-  }
-  .split-content figcaption {
-    margin-left: 20%;
-    margin-right: 20%;
-  }
+    .split-content img {
+        width: 50%;
+        height: auto;
+        margin: auto;
+    }
+
+    .split-content figcaption {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
 }
 
 
@@ -360,15 +358,15 @@ strong {
 
 
 .solutions-intro {
-  text-align: center; 
-  max-width: 800px; 
-  margin: auto;
-  margin-bottom: 1rem;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    margin-bottom: 1rem;
 }
 
 .solutions-list-container {
     max-width: 1100px;
-    margin: 0 auto;   
+    margin: 0 auto;
     padding: 0 1rem;
 }
 
@@ -388,9 +386,9 @@ strong {
 }
 
 .solution-item {
-    display: flex; 
-    align-items: flex-start; 
-    gap: 1.5rem; 
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
 }
 
 .solution-item img {
@@ -401,7 +399,7 @@ strong {
 
 .solution-item h3 {
     font-size: 1.2rem;
-    color: green; 
+    color: green;
 }
 
 .solution-item p {
@@ -415,12 +413,12 @@ strong {
 
 .critique-block {
     border: solid grey 1px;
-    border-left: solid 6px green; 
-    border-radius: 8px; 
-    padding: 1.5rem 2rem; 
-    margin: 2rem auto; 
+    border-left: solid 6px green;
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin: 2rem auto;
     margin-bottom: 5rem;
-    max-width: 900px;  
+    max-width: 900px;
     transition: background-color 0.3s ease;
 }
 
@@ -432,20 +430,20 @@ strong {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: grid; 
+    display: grid;
     gap: 1rem;
 }
 
 .critique-item {
-    display: flex; 
+    display: flex;
     align-items: center;
-    gap: 1rem; 
+    gap: 1rem;
 }
 
 .critique-icon {
     width: 32px;
     height: 32px;
-    flex-shrink: 0; 
+    flex-shrink: 0;
 }
 
 .critique-icon img {
@@ -467,16 +465,15 @@ strong {
 
 /* Footer */
 .footer {
-  background-color: green;
-  color: white;
-  text-align: center;
-  padding: 1.5rem;
-  margin-top: 3rem;
-  font-size: 0.9rem;
+    background-color: green;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    font-size: 0.9rem;
 }
 
-/* Smooth scroll*/ 
+/* Smooth scroll*/
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
-
