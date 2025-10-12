@@ -165,6 +165,10 @@ img {
     opacity: 1;
 }
 
+.info-panel [hidden] {
+    display: none !important;
+}
+
 .info-panel:not(.is-active) {
     pointer-events: none;
     opacity: 0;
