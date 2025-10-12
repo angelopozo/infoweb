@@ -785,15 +785,10 @@ strong {
     align-items: center;
 }
 
-.panel-map:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
 
 .panel-map__header {
     padding: 1.5rem;
     text-align: center;
-    border-bottom: 2px solid var(--accent);
     width: 100%;
 }
 
