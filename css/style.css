@@ -113,7 +113,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.6rem; /* tamaño del emoji */
+    font-size: 1.6rem;
+    /* tamaño del emoji */
     background: linear-gradient(135deg, rgba(65, 211, 189, 0.15), rgba(255, 255, 255, 0.08));
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
@@ -207,37 +208,37 @@ figcaption {
 }
 
 strong {
-  color: green;
+    color: green;
 }
 
 .section-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;   
-  margin: 0 auto;      
-  padding: 2rem 1rem;      
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
 }
 
 
 /* Section resumenes */
 
 .section-content .section-resumen {
-  font-size: 1.1rem;         
-  font-weight: bold;            
-  line-height: 1.8;          
-  color: black;              
-  margin: 0 auto; 
-  max-width: 800px;          
-  padding: 0 1.5rem;   
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 1.8;
+    color: black;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 0 1.5rem;
 }
 
 .section-content .section-resumen img {
-  display: block;          
-  max-width: 100%;         
-  width: 100%;             
-  max-width: 800px;       
-  margin: 2rem auto 0;   
-  border-radius: 10px;     
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto 0;
+    border-radius: 10px;
 }
 
 .section-subtitle {
@@ -250,7 +251,7 @@ strong {
 
 
 
-/* Reto sequia*/ 
+/* Reto sequia*/
 /* Impactos medioambientales */
 
 .blocks-grid {
@@ -309,10 +310,10 @@ strong {
 
 /* (usado en los 2 sitios) */
 
-/* Reto sequia*/ 
+/* Reto sequia*/
 /* El Impacto Humano y Económico */
 
-/* Reto microplasticos */ 
+/* Reto microplasticos */
 /* Impactos Medioambientales */
 
 .split-layout {
@@ -387,7 +388,7 @@ strong {
 
 
 
-/* Reto sequia*/ 
+/* Reto sequia*/
 /* Buscando Soluciones para la Crisis Hídrica */
 
 .solutions-intro {
@@ -445,14 +446,14 @@ strong {
 
 
 
-/* Reto sequia*/ 
+/* Reto sequia*/
 /* Críticas y Desafíos Pendientes */
 
 .critique-block {
-    border: solid 5px green; 
-    border-radius: 8px; 
-    padding: 1.5rem 2rem; 
-    margin: 2rem auto; 
+    border: solid 5px green;
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin: 2rem auto;
     margin-bottom: 5rem;
     max-width: 900px;
     transition: background-color 0.3s ease;
@@ -498,12 +499,12 @@ strong {
 
 
 
-/* Reto microplasticos */ 
+/* Reto microplasticos */
 /* El Impacto Humano y Económico */
 
 .impact-columns-container {
     display: grid;
-    gap: 2rem; 
+    gap: 2rem;
     max-width: 1200px;
     margin: 1rem auto;
     padding: 0 1rem;
@@ -512,20 +513,18 @@ strong {
 
 @media (min-width: 768px) {
     .impact-columns-container {
-        grid-template-columns: repeat(3, auto); 
+        grid-template-columns: repeat(3, auto);
     }
 }
 
 .impact-column {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     text-align: center;
-    border: 1px solid grey; 
+    border: 1px solid grey;
     border-radius: 8px;
     padding: 2rem;
     transition: all 0.3s ease;
-
-    
 }
 
 .impact-column:hover {
@@ -545,24 +544,21 @@ strong {
 }
 
 .impact-column img {
-    margin-top: auto; 
+    margin-top: auto;
     padding-top: 1.5rem;
-    height: 64px; 
+    height: 64px;
 }
 
 .impact-column img {
-    height: auto; 
+    height: auto;
     width: 80%;
 }
 
-
-
-
-/* Reto microplasticos */ 
+/* Reto microplasticos */
 /* La Lucha Contra el Plástico */
 
 .timeline-container {
-    max-width: 800px; 
+    max-width: 800px;
     margin: 1rem auto;
     padding: 0 1rem;
 }
@@ -571,20 +567,20 @@ strong {
     list-style: none;
     padding: 0;
     margin: 0;
-    border-left: 3px solid grey; 
+    border-left: 3px solid grey;
     position: relative;
 }
 
 .timeline-item {
-    margin-bottom: 3rem; 
-    padding-left: 2.5rem; 
+    margin-bottom: 3rem;
+    padding-left: 2.5rem;
     position: relative;
 }
 
 .timeline-item::before {
-    content: ''; 
+    content: '';
     position: absolute;
-    top: 5px; 
+    top: 5px;
     left: -7px;
     width: 12px;
     height: 12px;
@@ -609,13 +605,80 @@ strong {
 
 /* Footer */
 .footer {
-    background-color: green;
-    color: white;
-    text-align: center;
-    padding: 1.5rem;
+    background: linear-gradient(135deg, #1b5e20, #2e7d32);
+    /* degradado verde elegante */
+    color: #f5f5f5;
+    padding: 2.5rem 1.5rem;
     margin-top: 3rem;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: left;
+    border-top: 4px solid #81c784;
 }
+
+.footer h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.footer h4 {
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+    color: #c8e6c9;
+    font-size: 1.1rem;
+    border-left: 4px solid #81c784;
+    padding-left: 0.5rem;
+}
+
+.footer p {
+    margin: 0.4rem 0;
+    text-align: justify;
+    color: #f0f0f0;
+}
+
+.footer i {
+    color: #dcedc8;
+}
+
+.footer a {
+    color: #a5d6a7;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.footer .copy {
+    text-align: center;
+    margin-top: 2.5rem;
+    font-size: 0.85rem;
+    color: #e0e0e0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .footer h3 {
+        font-size: 1.2rem;
+    }
+
+    .footer h4 {
+        font-size: 1rem;
+    }
+}
+
 
 
 /* Mapa interactivo */
