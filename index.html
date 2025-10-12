@@ -1,398 +1,327 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-
+    <title>Desafíos Ambientales</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,701;1,701&display=swap"
-        rel="stylesheet">
-
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-    <div class="hero">
-        <div class="header">
-            <div class="header_text">
-                <span>Desafios <span class="ambientales">Ambientales</span> que Moldean</span>
-                <span>Nuestro Futuro</span>
-            </div>
+    <header class="hero" role="banner">
+        <div class="hero__overlay"></div>
+        <div class="hero__content">
+            <p class="hero__eyebrow">Informe interactivo</p>
+            <h1 class="hero__title">Desafíos ambientales que moldean nuestro futuro</h1>
+            <p class="hero__subtitle">Explora crisis actuales, su impacto social y las acciones que pueden cambiar el rumbo.</p>
         </div>
+        <nav class="tab-nav" aria-label="Temáticas ambientales" role="tablist">
+            <button class="tab-nav__button is-selected" role="tab" aria-selected="true" aria-controls="panel-agua" id="tab-agua" data-target="agua">
+                <span class="tab-nav__icon" aria-hidden="true">💧</span>
+                <span class="tab-nav__label">Crisis del Agua</span>
+            </button>
+            <button class="tab-nav__button" role="tab" aria-selected="false" aria-controls="panel-plasticos" id="tab-plasticos" data-target="plasticos">
+                <span class="tab-nav__icon" aria-hidden="true">🧴</span>
+                <span class="tab-nav__label">Plásticos y Océanos</span>
+            </button>
+            <button class="tab-nav__button" role="tab" aria-selected="false" aria-controls="panel-deforestacion" id="tab-deforestacion" data-target="deforestacion">
+                <span class="tab-nav__icon" aria-hidden="true">🌳</span>
+                <span class="tab-nav__label">Deforestación</span>
+            </button>
+            <button class="tab-nav__button" role="tab" aria-selected="false" aria-controls="panel-nitratos" id="tab-nitratos" data-target="nitratos">
+                <span class="tab-nav__icon" aria-hidden="true">⚡</span>
+                <span class="tab-nav__label">Nitratos en Aguas</span>
+            </button>
+            <button class="tab-nav__button" role="tab" aria-selected="false" aria-controls="panel-bibliografia" id="tab-bibliografia" data-target="bibliografia">
+                <span class="tab-nav__icon" aria-hidden="true">📚</span>
+                <span class="tab-nav__label">Bibliografía</span>
+            </button>
+        </nav>
+    </header>
 
-        <div class="navbar">
-            <nav class="nav" aria-label="Navegación principal">
-                <ul class="nav__tiles">
-                    <li class="nav__item">
-                        <a class="nav__tile" href="#">
-                            <span class="nav__icon" aria-hidden="true">💧</span>
-                            <span class="nav__label">Crisis del Agua</span>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a class="nav__tile" href="#">
-                            <span class="nav__icon" aria-hidden="true">🌊</span>
-                            <span class="nav__label">Plásticos y Océanos</span>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a class="nav__tile" href="#">
-                            <span class="nav__icon" aria-hidden="true">🌳</span>
-                            <span class="nav__label">Deforestación</span>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a class="nav__tile" href="#">
-                            <span class="nav__icon" aria-hidden="true">☣️</span>
-                            <span class="nav__label">Contaminación</span>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a class="nav__tile" href="#">
-                            <span class="nav__icon" aria-hidden="true">📚</span>
-                            <span class="nav__label">Fuentes y Bibliografía</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-
-    <main>
-
-        <!-- Reto sequia -->
-        <div class="section-header" style="--bg: url('../assets/img/image.jpg');">
-            <div class="section-header-title">
-                Crisis del agua dulce y sequías extremas
-            </div>
-        </div>
-        <section class="section-content agua">
-            <div class="section-resumen">
-                <p>Entre 2023 y 2024, el pantano de Sau en Cataluña se quedó casi seco por la falta de lluvia y porque
-                    se gastó demasiada agua.</p>
-                <p>Esta situación afectó ecosistemas acuáticos, agricultura, comunidades locales y el turismo,
-                    evidenciando la gravedad de la crisis hídrica.</p>
-                <img src="../assets/img/sau.jpg" alt="Sequia Sau">
-                <figcaption>El embalse de Sau, con el nivel del agua muy por debajo de lo normal, dejando tierra seca
-                    visible.</figcaption>
-            </div>
-            
-            <h3 class="section-subtitle">Impactos Medioambientales</h3>
-            <div class="blocks-grid">
-                <div class="block">
-                    <img src="../assets/img/peces_muertos.jpg" alt="Peces muertos">
-                    <div class="block-text">
-                        <h4>Colapso de Ecosistemas</h4>
-                        <p>La falta de caudales mínimos provoca la muerte masiva de peces y la desaparición de la vida
-                            acuática.</p>
-                    </div>
+    <main class="panels" id="contenido-principal">
+        <section class="info-panel is-active" id="panel-agua" role="tabpanel" aria-labelledby="tab-agua" data-panel="agua">
+            <header class="panel-header">
+                <div class="panel-header__icon" aria-hidden="true">💧</div>
+                <div>
+                    <h2>Crisis del agua dulce y sequías extremas</h2>
+                    <p>El agotamiento de embalses, la sobreexplotación de acuíferos y las sequías cada vez más largas amenazan a comunidades enteras y ponen en jaque la seguridad hídrica.</p>
                 </div>
-                <div class="block">
-                    <img src="../assets/img/aves_migratorias.jpg" alt="Aves migratorias">
-                    <div class="block-text">
-                        <h4>Pérdida de Hábitats</h4>
-                        <p>Las aves migratorias pierden zonas de descanso y alimentación que son vitales para su
-                            supervivencia.</p>
-                    </div>
-                </div>
-                <div class="block">
-                    <img src="../assets/img/suelo_seco.jpg" alt="Suelo seco">
-                    <div class="block-text">
-                        <h4>Degradación de suelos</h4>
-                        <p>La falta de humedad degrada los suelos, acelera la desertificación y reduce la biodiversidad.
-                        </p>
-                    </div>
-                </div>
+            </header>
+            <div class="panel-highlight">
+                <h3>Ejemplo real — Embalse de la Sau, Cataluña</h3>
+                <p>En 2023 y 2024, el pantano de Sau llegó a niveles inferiores al 5&nbsp;% de su capacidad por falta de lluvias y sobreexplotación del recurso. Imágenes de iglesias emergiendo de las aguas secas se hicieron virales, mostrando la gravedad de la sequía en la cuenca mediterránea.</p>
             </div>
-
-            <h3 class="section-subtitle">Impacto Humano y Económico</h3>
-            <div class="split-layout">
-                <div class="split-content">
-                    <p>La falta de agua no solo daña el medio ambiente, también afecta la vida diaria, el trabajo y la
-                        economía de la zona. Esta crisis provoca una cadena de problemas que se nota en todas las áreas.
-                    </p>
-                    <br>
+            <div class="panel-grid">
+                <article class="info-card">
+                    <h3>Impacto ambiental</h3>
+                    <p>Los ecosistemas acuáticos colapsan cuando desaparecen caudales mínimos: peces mueren, aves migratorias pierden zonas de descanso y la calidad del agua se degrada, favoreciendo algas tóxicas. Además, los suelos pierden humedad y biodiversidad, acelerando procesos de desertificación.</p>
+                </article>
+                <article class="info-card">
+                    <h3>Impacto en personas y economía</h3>
+                    <p>La agricultura sufre pérdidas millonarias al no poder regar cultivos; los precios de alimentos básicos se disparan. Las ciudades se enfrentan a restricciones de consumo y aumento de costes para potabilizar agua de peor calidad. El turismo de zonas rurales y de embalses desaparece cuando los paisajes se secan.</p>
+                </article>
+            </div>
+            <div class="panel-columns">
+                <article class="list-card">
+                    <h3>Medidas adoptadas y recomendadas</h3>
                     <ul>
-                        <li>
-                            <strong>Campo y Cultivos:</strong> La agricultura tiene pérdidas millonarias al no poder
-                            regar, lo que hace que suba el precio de los alimentos.
-                        </li>
-                        <li>
-                            <strong>Agua en la Ciudad:</strong> Las ciudades sufren cortes de agua y deben gastar más en
-                            hacerla potable, subiendo las facturas de la gente.
-                        </li>
-                        <li>
-                            <strong>Turismo:</strong> El turismo rural, una fuente de ingresos importante, desaparece
-                            cuando los paisajes se secan y se prohíben actividades en el agua.
-                        </li>
-                        <li>
-                            <strong>Industria:</strong> Las fábricas que necesitan agua para producir son obligadas a
-                            reducir su actividad o a gastar mucho en tecnologías para reutilizarla.
-                        </li>
+                        <li>Planes de gestión integrada del agua, priorizando el consumo humano y el riego eficiente (goteo, sensores de humedad).</li>
+                        <li>Recuperación de humedales y recarga de acuíferos.</li>
+                        <li>Uso de desalinizadoras y plantas de reutilización de aguas residuales.</li>
+                        <li>Campañas de ahorro y sistemas tarifarios progresivos que penalicen el consumo excesivo.</li>
                     </ul>
-                </div>
-
-                <div class="split-content">
-                    <img src="../assets/img/cultivo_sequia.jpg" alt="Campo seco">
-                    <figcaption>La agricultura es el primer sector en sufrir, con pérdidas de cosechas que afectan
-                        directamente al precio de los alimentos.</figcaption>
-                </div>
-            </div>
-
-            <h2 class="section-subtitle">Buscando Soluciones para la Crisis Hídrica</h2>
-
-            <p class="solutions-intro">
-                Para combatir la sequía, se están implementando diversas estrategias que combinan tecnología, soluciones
-                basadas en la naturaleza y la responsabilidad de todos.
-            </p>
-
-            <div class="solutions-list-container">
-                <ul class="solutions-list">
-                    <li class="solution-item">
-                        <img src="../assets/img/riego_inteligente.png" alt="Icono de gestión y riego eficiente">
-                        <div>
-                            <h3>Gestión Eficiente y Riego Inteligente</h3>
-                            <p>
-                                Aplicar planes que prioricen el agua para consumo humano y usar tecnologías como el
-                                riego por goteo o sensores de humedad para que el campo no malgaste ni una gota.
-                            </p>
-                        </div>
-                    </li>
-
-                    <li class="solution-item">
-                        <img src="../assets/img/humedales.jpg" alt="Icono de ecosistema y soluciones naturales">
-                        <div>
-                            <h3>Recuperar Soluciones Naturales</h3>
-                            <p>
-                                Restaurar humedales y zonas naturales que actúan como "esponjas". Estas ayudan a retener
-                                el agua de lluvia y a recargar los acuíferos subterráneos.
-                            </p>
-                        </div>
-                    </li>
-
-                    <li class="solution-item">
-                        <img src="../assets/img/plantas_desalinizadoras.jpg"
-                            alt="Icono de tecnología y nuevas fuentes de agua">
-                        <div>
-                            <h3>Crear Nuevas Fuentes de Agua</h3>
-                            <p>
-                                Construir plantas desalinizadoras para convertir el agua de mar en potable y aumentar la
-                                reutilización de aguas residuales (ya tratadas) para la agricultura y la industria.
-                            </p>
-                        </div>
-                    </li>
-
-                    <li class="solution-item">
-                        <img src="../assets/img/camapana_concienciacion_agua.jpg"
-                            alt="Icono de ahorro y consumo responsable">
-                        <div>
-                            <h3>Consumo y Ahorro Responsable</h3>
-                            <p>
-                                Lanzar campañas de concienciación para la ciudadanía y aplicar tarifas que cobren más a
-                                quienes consumen agua de forma excesiva, tanto en casa como en grandes empresas.
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-
-                <h3 class="section-subtitle">Críticas y Desafíos Pendientes</h3>
-                <div class="critique-block">
-                    <ul class="critique-list">
-                        <li class="critique-item">
-                            <div class="critique-icon">
-                                <img src="../assets/img/enchufe_icono.png" alt="Icono enchufe">
-                            </div>
-                            <p class="critique-text">
-                                <strong>Alto coste energético:</strong> Las grandes plantas desalinizadoras, aunque
-                                útiles, consumen una enorme cantidad de energía y contribuyen a la huella de carbono.
-                            </p>
-                        </li>
-
-                        <li class="critique-item">
-                            <div class="critique-icon">
-                                <img src="../assets/img/reloj_icono.png" alt="Icono reloj">
-                            </div>
-                            <p class="critique-text">
-                                <strong>Planes que llegan tarde:</strong> Muchos planes de ahorro se aplican cuando la
-                                sequía ya es muy grave y, a menudo, no se vigila de forma estricta que se cumplan.
-                            </p>
-                        </li>
-
-                        <li class="critique-item">
-                            <div class="critique-icon">
-                                <img src=../assets/img/balanza_icono.png alt="Icono balanza">
-                            </div>
-                            <p class="critique-text">
-                                <strong>Doble rasero en el ahorro:</strong> Se pide un gran esfuerzo de ahorro a los
-                                ciudadanos, mientras que algunas grandes industrias mantienen un consumo de agua
-                                desproporcionado.
-                            </p>
-                        </li>
+                </article>
+                <article class="list-card warning">
+                    <h3>Críticas</h3>
+                    <ul>
+                        <li>Construcción de macro-desalinizadoras con alto consumo energético y huella de carbono.</li>
+                        <li>Planes de ahorro que se aplican tarde y sin fiscalización real.</li>
+                        <li>Grandes industrias mantienen extracciones desproporcionadas mientras la ciudadanía recibe la presión del ahorro.</li>
                     </ul>
-                </div>
+                </article>
             </div>
         </section>
 
-
-        <!-- Reto plasticos mar -->
-        <div class="section-header" style="--bg: url('../assets/img/plasticos_mar.jpg');">
-            <div class="section-header-title" >
-                Plásticos y microplásticos en océanos y alimentos
+        <section class="info-panel" id="panel-plasticos" role="tabpanel" aria-labelledby="tab-plasticos" data-panel="plasticos" hidden aria-hidden="true">
+            <header class="panel-header">
+                <div class="panel-header__icon" aria-hidden="true">🧴</div>
+                <div>
+                    <h2>Plásticos y microplásticos en océanos y alimentos</h2>
+                    <p>La producción masiva de plásticos y su dispersión global amenazan la vida marina, contaminan los alimentos y generan pérdidas económicas significativas.</p>
+                </div>
+            </header>
+            <div class="panel-highlight">
+                <h3>Ejemplo real — Gran Mancha de Basura del Pacífico</h3>
+                <p>Esta acumulación de plásticos en el océano Pacífico, del tamaño de varios países juntos, contiene millones de toneladas de desechos arrastrados por corrientes marinas y se ha convertido en símbolo de la contaminación global.</p>
             </div>
-        </div>
-
-        <section class="section-content agua">
-            <div class="section-resumen">
-                <p>Un ejemplo visible de esta crisis es la Gran Mancha de Basura del Pacífico, una enorme acumulación de millones de toneladas de plástico.</p>
-                <p>A este problema se añade uno invisible: los microplásticos, partículas diminutas que ya contaminan los océanos, el agua potable y los alimentos.</p>
-                <img src="../assets/img/gran_mancha_pacifico.jpg" alt="Gran mancha pacifico">
-                <figcaption>La gran mancha de basura del Pacífico.</figcaption>
+            <div class="panel-grid">
+                <article class="info-card">
+                    <h3>Impacto ambiental</h3>
+                    <p>La fauna marina ingiere plásticos, provocando asfixia y muerte en tortugas, aves y peces. Los microplásticos se integran en la cadena trófica y afectan organismos desde el zooplancton hasta grandes depredadores. Ecosistemas costeros se alteran, dañando arrecifes y manglares.</p>
+                </article>
+                <article class="info-card">
+                    <h3>Impacto en personas y economía</h3>
+                    <p>Microplásticos han sido hallados en agua potable, sal de mesa e incluso en la placenta humana. Esto plantea riesgos aún poco comprendidos para la salud. Economías costeras pierden millones por playas contaminadas, mientras sectores pesqueros sufren por especies menos seguras para el consumo y restricciones sanitarias.</p>
+                </article>
             </div>
-        
-
-            <h3 class="section-subtitle">Impactos Medioambientales</h3>
-            <div class="split-layout">
-                <div class="split-content">
-                    <img src="../assets/img/tortuga_plastico.jpg" alt="Tortuga marina enredado plastico.">
-                </div>
-                <div class="split-content">
-                    <h3>La Trampa Mortal del Plástico</h3>
-                    <p>Cientos de miles de animales marinos como tortugas, aves y focas mueren cada año al quedar <strong>enredados</strong> en plásticos o al <strong>ingerirlos</strong>, confundiéndolos con comida. Esto les provoca asfixia, heridas internas y desnutrición.</p>
-                </div>
-            </div>
-            <div class="split-layout">
-                <div class="split-content" style="text-align: right;">
-                    <h3>Contaminación en Cadena</h3>
-                    <p>Los microplásticos son consumidos por el plancton, el primer eslabón de la cadena alimenticia. De ahí pasan a los peces pequeños, luego a los grandes depredadores y, finalmente, a nuestros platos. Están <strong>contaminando toda vida</strong> del océano.</p>
-                </div>
-                <div class="split-content">
-                    <img src="../assets/img/plancton_microplasticos.jpg" alt="Plancton microplasticos">
-                </div>
-            </div>
-
-            <h3 class="section-subtitle">Impacto Humano y Económico</h3>
-            <div class="impact-columns-container">
-                <div class="impact-column">
-                    <h3>En Nuestra Comida</h3>
-                    <p>Se han encontrado microplásticos en el agua embotellada, la sal de mesa, la cerveza e incluso la miel. Aunque los riesgos para la salud aún se estudian, la exposición es constante.</p>
-                    <div>
-                        <img src="../assets/img/microplasticos_comida.jpg" alt="Icono de un plato de comida y un vaso de agua">
-                    </div>
-                </div>
-
-                <div class="impact-column">
-                    <h3>Economía afectada</h3>
-                    <p>Las playas sucias ahuyentan al turismo, costando millones a las comunidades costeras. Además, la pesca se ve afectada por la contaminación, dañando la reputación y seguridad del pescado.</p>
-                    <div>
-                        <img src="../assets/img/playa_contaminada.jpg" alt="Icono de una playa y una moneda">
-                    </div>
-                </div>
-
-                <div class="impact-column">
-                    <h3>Dentro de Nosotros</h3>
-                    <p>De forma alarmante, ya se han detectado microplásticos en la sangre humana, los pulmones y hasta en el cerebro, planteando serias dudas sobre sus efectos a largo plazo en nuestra salud.</p>
-                    <div>
-                        <img src="../assets/img/microplasticos_cerebro.jpg" alt="Icono de una persona y una gota de sangre">
-                    </div>
-                </div>
-            </div>
-
-            <h2 class="section-subtitle">La Lucha Contra el Plástico</h2>
-            <div class="timeline-container">
-                <ul class="timeline">
-
-                    <li class="timeline-item">
-                        <h3>Prohibiciones a Plásticos de un Solo Uso</h3>
-                        <p>
-                            Gobiernos de todo el mundo están prohibiendo los productos más problemáticos, como bolsas, pajitas y cubiertos, para reducir la basura plástica desde su origen.
-                        </p>
-                    </li>
-
-                    <li class="timeline-item">
-                        <h3>Innovación y Reciclaje</h3>
-                        <p>
-                            Se impulsan sistemas de depósito y retorno de envases (SDDR) y se mejoran las tecnologías de reciclaje para poder procesar más tipos de plástico.
-                        </p>
-                    </li>
-
-                    <li class="timeline-item">
-                        <h3>Acuerdos Globales</h3>
-                        <p>
-                            La ONU trabaja en un Tratado Global sobre Plásticos para coordinar una respuesta mundial y obligar a los países y empresas a actuar.
-                        </p>
-                    </li>
-
-                    <li class="timeline-item">
-                        <h3>Limpieza a Gran Escala</h3>
-                        <p>
-                            Proyectos como "The Ocean Cleanup" desarrollan tecnología para recoger las toneladas de plástico que ya flotan en los océanos.
-                        </p>
-                    </li>
-
-                </ul>
-            </div>
-
-            <h3 class="section-subtitle">Críticas y Desafíos Pendientes</h3>
-            
-            <div class="critique-block">
-                <ul class="critique-list">
-
-                    <li class="critique-item">
-                        <div class="critique-icon">
-                            <img src="../assets/img/bioplasticos_icono.png" alt="Símbolo de advertencia">
-                        </div>
-                        <p class="critique-text">
-                            <strong>"Bioplásticos":</strong> Muchos materiales que sustituyen al plástico solo se degradan en condiciones industriales muy específicas y pueden seguir contaminando el medio ambiente.
-                        </p>
-                    </li>
-
-                    <li class="critique-item">
-                        <div class="critique-icon">
-                            <img src="../assets/img/advertencia_icono.png" alt="Reciclaje roto">
-                        </div>
-                        <p class="critique-text">
-                            <strong>Reciclaje insuficiente:</strong> La tasa mundial de reciclaje de plástico sigue siendo bajísima (menos del 10%), y muchos residuos se exportan a países más pobres que no tienen capacidad para gestionarlos.
-                        </p>
-                    </li>
-
-                    <li class="critique-item">
-                        <div class="critique-icon">
-                            <img src="../assets/img/marketing_icono.png" alt="Marketing">
-                        </div>
-                        <p class="critique-text">
-                            <strong>Lavado de imagen:</strong> Muchas empresas anuncian envases "eco" o "reciclados" como marketing, sin que esto suponga una reducción real de su producción total de plástico.
-                        </p>
-                    </li>
-
-                </ul>
+            <div class="panel-columns">
+                <article class="list-card">
+                    <h3>Medidas adoptadas y recomendadas</h3>
+                    <ul>
+                        <li>Prohibición de plásticos de un solo uso (bolsas, pajitas, cubiertos).</li>
+                        <li>Impulso a envases retornables y sistemas de depósito y retorno (SDDR).</li>
+                        <li>Tecnologías de reciclaje químico y mecánico mejoradas.</li>
+                        <li>Iniciativas internacionales como el Tratado Global sobre Plásticos de la ONU y proyectos de limpieza oceánica (The Ocean Cleanup).</li>
+                    </ul>
+                </article>
+                <article class="list-card warning">
+                    <h3>Críticas</h3>
+                    <ul>
+                        <li>La prohibición parcial no frena la producción total y se sustituyen por bioplásticos que también contaminan si no se gestionan bien.</li>
+                        <li>El reciclaje global sigue bajo (menos del 10&nbsp;%), con exportación de residuos a países sin capacidad de procesarlos.</li>
+                        <li>Se señala greenwashing en marcas que anuncian envases “eco” sin impacto real.</li>
+                    </ul>
+                </article>
             </div>
         </section>
 
-        <section>
-            <div class="section-header" style="--bg: url('../assets/img/deforestacion.jpg');">
-                <div class="section-header-title">
-                    Deforestación masiva ligada a cultivos industriales
+        <section class="info-panel" id="panel-deforestacion" role="tabpanel" aria-labelledby="tab-deforestacion" data-panel="deforestacion" hidden aria-hidden="true">
+            <header class="panel-header">
+                <div class="panel-header__icon" aria-hidden="true">🌳</div>
+                <div>
+                    <h2>Deforestación masiva ligada a cultivos industriales</h2>
+                    <p>La pérdida acelerada de bosques tropicales compromete la captura de carbono, destruye hábitats clave y desestabiliza comunidades que dependen del bosque.</p>
                 </div>
+            </header>
+            <div class="panel-highlight">
+                <h3>Ejemplo real — Amazonía y palma aceitera en Indonesia</h3>
+                <p>La Amazonía pierde miles de hectáreas cada día, principalmente para ganadería y soja. En el sudeste asiático, bosques tropicales son talados para plantar palma aceitera, afectando especies como orangutanes y tigres de Sumatra.</p>
+            </div>
+            <div class="panel-grid">
+                <article class="info-card">
+                    <h3>Impacto ambiental</h3>
+                    <p>La tala reduce la capacidad de absorción de CO₂, acelera el cambio climático y destruye hábitats críticos. Los suelos se degradan y aumenta el riesgo de incendios. Al perder bosques, disminuye la regulación natural del ciclo del agua y la biodiversidad colapsa.</p>
+                </article>
+                <article class="info-card">
+                    <h3>Impacto en personas y economía</h3>
+                    <p>Comunidades indígenas pierden territorios y medios de vida. Agricultores locales sufren erosión y menor fertilidad del suelo a largo plazo. La pérdida de bosques afecta el clima regional y, con ello, cultivos y disponibilidad de agua. El ecoturismo y la recolección sostenible de productos forestales se desploman.</p>
+                </article>
+            </div>
+            <div class="panel-columns">
+                <article class="list-card">
+                    <h3>Medidas adoptadas y recomendadas</h3>
+                    <ul>
+                        <li>Moratorias a la tala ilegal y certificaciones de sostenibilidad (RSPO para aceite de palma, FSC para madera).</li>
+                        <li>Restauración de áreas degradadas y corredores biológicos.</li>
+                        <li>Acuerdos internacionales para trazabilidad de materias primas.</li>
+                        <li>Leyes que limitan importaciones ligadas a deforestación (como la UE en 2023).</li>
+                    </ul>
+                </article>
+                <article class="list-card warning">
+                    <h3>Críticas</h3>
+                    <ul>
+                        <li>Sistemas de certificación percibidos como débiles y permisivos.</li>
+                        <li>Aplicación desigual de las leyes y corrupción que facilita la tala ilegal.</li>
+                        <li>Proyectos de reforestación basados en monocultivos que no recuperan la complejidad del bosque.</li>
+                        <li>La presión global sobre la demanda de carne y aceite sigue sin disminuir.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="info-panel" id="panel-nitratos" role="tabpanel" aria-labelledby="tab-nitratos" data-panel="nitratos" hidden aria-hidden="true">
+            <header class="panel-header">
+                <div class="panel-header__icon" aria-hidden="true">⚡</div>
+                <div>
+                    <h2>Contaminación por nitratos en acuíferos agrícolas y agua potable</h2>
+                    <p>El uso intensivo de fertilizantes y las filtraciones agrícolas saturan los acuíferos, desencadenando crisis ambientales y sanitarias en las regiones agrícolas.</p>
+                </div>
+            </header>
+            <div class="panel-highlight">
+                <h3>Ejemplo real — Contaminación del Mar Menor (Murcia)</h3>
+                <p>El Mar Menor, la mayor laguna salada de Europa, ha sufrido varios episodios de anoxia y mortandad masiva de peces (2016, 2019 y 2021) debido al exceso de nutrientes, especialmente nitratos y fosfatos, procedentes de la agricultura intensiva del Campo de Cartagena. Estas sustancias llegan a través de acuíferos subterráneos y ramblas, generando un colapso del ecosistema.</p>
+            </div>
+            <div class="panel-grid">
+                <article class="info-card">
+                    <h3>Impacto ambiental</h3>
+                    <p>La eutrofización provoca proliferación de algas y pérdida de oxígeno en el agua, causando muerte de peces, caballitos de mar y moluscos. Los prados de fanerógamas marinas, esenciales para filtrar nutrientes y dar refugio a la fauna, han disminuido drásticamente. Además, la alteración química del agua afecta la salinidad y favorece especies invasoras.</p>
+                </article>
+                <article class="info-card">
+                    <h3>Impacto en personas y economía</h3>
+                    <p>Las aguas contaminadas dañan el turismo costero, mientras la pesca artesanal casi desaparece por el colapso de especies nativas y las restricciones sanitarias. Las familias cercanas enfrentan riesgo por agua de pozo con concentraciones de nitratos superiores a los límites legales, especialmente preocupante para bebés y embarazadas (síndrome del “bebé azul”).</p>
+                </article>
+            </div>
+            <div class="panel-columns">
+                <article class="list-card">
+                    <h3>Medidas adoptadas y recomendadas</h3>
+                    <ul>
+                        <li>Regulación agrícola: leyes como el Decreto-Ley 2/2019 y el Plan de Ordenación Territorial del Mar Menor limitan el uso de fertilizantes y exigen franjas de protección vegetada.</li>
+                        <li>Control de vertidos mediante balsas de retención y redes de drenaje para frenar escorrentías.</li>
+                        <li>Restauración de humedales y filtros verdes que retienen nutrientes antes de llegar al mar.</li>
+                        <li>Monitoreo y sanciones a explotaciones ilegales de regadío.</li>
+                    </ul>
+                </article>
+                <article class="list-card warning">
+                    <h3>Críticas</h3>
+                    <ul>
+                        <li>Las normas tardaron años en aplicarse y muchas fincas siguen usando pozos y riego ilegal sin control real.</li>
+                        <li>El cierre de explotaciones contaminantes es limitado y lento.</li>
+                        <li>Algunos planes priorizan soluciones técnicas en lugar de abordar el modelo agrícola intensivo.</li>
+                        <li>Organizaciones ecologistas denuncian presiones políticas y lobby agroindustrial para suavizar restricciones.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="info-panel" id="panel-bibliografia" role="tabpanel" aria-labelledby="tab-bibliografia" data-panel="bibliografia" hidden aria-hidden="true">
+            <header class="panel-header">
+                <div class="panel-header__icon" aria-hidden="true">📚</div>
+                <div>
+                    <h2>Bibliografía (APA 7ª edición)</h2>
+                    <p>Consulta las fuentes que respaldan los datos y ejemplos presentados en cada temática.</p>
+                </div>
+            </header>
+            <div class="sources">
+                <article class="source-group">
+                    <h3>💧 Crisis del agua dulce y sequías extremas</h3>
+                    <ul>
+                        <li>Agència Catalana de l’Aigua. (2024). <em>Situació de sequera a Catalunya: dades actualitzades dels embassaments</em>. Generalitat de Catalunya. https://aca.gencat.cat</li>
+                        <li>World Resources Institute. (2019). <em>Aqueduct Water Risk Atlas: Updated Global Water Stress Rankings</em>. https://www.wri.org/aqueduct</li>
+                        <li>European Environment Agency. (2021). <em>Water scarcity and droughts in Europe</em>. https://www.eea.europa.eu/publications/water-scarcity</li>
+                        <li>Ministerio para la Transición Ecológica y el Reto Demográfico. (2023). <em>Informe sobre la sequía en España 2022-2023</em>. https://www.miteco.gob.es</li>
+                        <li>Phipps, C. (2023, abril 27). Spain drought reveals ghost villages and church ruins as reservoirs dry up. <em>The Guardian</em>. https://www.theguardian.com</li>
+                    </ul>
+                </article>
+                <article class="source-group">
+                    <h3>🧴 Plásticos y microplásticos en océanos y alimentos</h3>
+                    <ul>
+                        <li>Lebreton, L., Slat, B., Ferrari, F., Sainte-Rose, B., Aitken, J., Marthouse, R., … Reisser, J. (2018). Evidence that the Great Pacific Garbage Patch is rapidly accumulating plastic. <em>Scientific Reports, 8</em>(4666). https://doi.org/10.1038/s41598-018-22939-w</li>
+                        <li>United Nations Environment Programme. (2021). <em>From pollution to solution: A global assessment of marine litter and plastic pollution</em>. https://www.unep.org/resources/pollution-solution-global-assessment-marine-litter-and-plastic-pollution</li>
+                        <li>Galloway, T. S., &amp; Lewis, C. N. (2016). Marine microplastics spell big problems for future generations. <em>Proceedings of the National Academy of Sciences, 113</em>(9), 2331–2333. https://doi.org/10.1073/pnas.1600715113</li>
+                        <li>The Ocean Cleanup. (2023). <em>Great Pacific Garbage Patch — Measurements and impact</em>. https://theoceancleanup.com</li>
+                        <li>World Health Organization. (2019). <em>Microplastics in drinking-water</em>. https://www.who.int/publications/i/item/9789241516198</li>
+                    </ul>
+                </article>
+                <article class="source-group">
+                    <h3>🌳 Deforestación masiva ligada a cultivos industriales</h3>
+                    <ul>
+                        <li>Food and Agriculture Organization of the United Nations. (2022). <em>The state of the world’s forests 2022</em>. https://doi.org/10.4060/cb9360en</li>
+                        <li>Greenpeace International. (2021). <em>Deforestation fronts: Drivers and responses in a changing world</em>. https://www.greenpeace.org/static/planet4-international-stateless/2021/01/4a347c91-deforestation-fronts-2021.pdf</li>
+                        <li>Global Forest Watch. (2023). <em>World’s tropical primary forest loss data</em>. https://www.globalforestwatch.org</li>
+                        <li>Rainforest Action Network. (2023). <em>The human and environmental costs of palm oil expansion in Indonesia</em>. https://www.ran.org</li>
+                        <li>European Parliament. (2023). <em>EU regulation on deforestation-free products</em>. https://www.europarl.europa.eu/news/en/headlines/economy/20230417STO80725</li>
+                        <li>Butler, R. A. (2023). Amazon rainforest deforestation trends and impacts. <em>Mongabay</em>. https://news.mongabay.com</li>
+                    </ul>
+                </article>
+                <article class="source-group">
+                    <h3>⚡ Contaminación por nitratos en acuíferos agrícolas y agua potable</h3>
+                    <ul>
+                        <li>Confederación Hidrográfica del Segura. (2023). <em>Informe sobre el estado químico de las aguas subterráneas del Campo de Cartagena y su afección al Mar Menor</em>. https://www.chsegura.es</li>
+                        <li>Greenpeace España. (2021). <em>Mar Menor: un ecosistema en colapso</em>. https://es.greenpeace.org/es/trabajamos-en/mar-medioambiente/mar-menor</li>
+                        <li>European Environment Agency. (2021). <em>Nitrate pollution in Europe: environmental and health concerns</em>. https://www.eea.europa.eu</li>
+                        <li>Varela-Lafuente, M. (2022). Agricultura intensiva y contaminación por nitratos en el sureste español. <em>Revista Española de Estudios Agrosociales y Pesqueros, 259</em>, 71–95.</li>
+                        <li>Diario El País. (2021, agosto 23). Nueva mortandad masiva de peces en el Mar Menor: el impacto de la agricultura intensiva. https://elpais.com</li>
+                    </ul>
+                </article>
             </div>
         </section>
     </main>
 
-    <footer class="footer" section id="bibliografia">
-        <h3>Bibliografía (APA 7ª edición)</h3>
-        <p>Agència Catalana de l’Aigua (2024). <i>Situació de sequera a Catalunya</i>. Generalitat de Catalunya.</p>
-        <p>United Nations Environment Programme (2021). <i>From pollution to solution</i>.</p>
-        <p>FAO (2022). <i>The State of the World’s Forests</i>.</p>
-        <p>Confederación Hidrográfica del Segura (2023). <i>Informe sobre el estado químico de las aguas</i>.</p>
-        <p class="copy">© 2025 Proyecto Infoweb - John Salango</p>
+    <footer class="footer" role="contentinfo">
+        <p>© 2025 Proyecto Infoweb · Datos y visualizaciones educativas.</p>
     </footer>
-</body>
 
+    <script>
+        const navButtons = document.querySelectorAll('.tab-nav__button');
+
+        function activatePanel(target) {
+            const newPanel = document.querySelector(`[data-panel="${target}"]`);
+            const currentPanel = document.querySelector('.info-panel.is-active');
+
+            if (!newPanel || newPanel === currentPanel) {
+                return;
+            }
+
+            navButtons.forEach((button) => {
+                const isActive = button.dataset.target === target;
+                button.classList.toggle('is-selected', isActive);
+                button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            });
+
+            if (currentPanel) {
+                currentPanel.classList.add('is-exiting');
+                currentPanel.addEventListener('animationend', function handleExit() {
+                    currentPanel.classList.remove('is-active', 'is-exiting');
+                    currentPanel.setAttribute('hidden', '');
+                    currentPanel.setAttribute('aria-hidden', 'true');
+                    currentPanel.removeEventListener('animationend', handleExit);
+                }, { once: true });
+            }
+
+            newPanel.removeAttribute('hidden');
+            newPanel.setAttribute('aria-hidden', 'false');
+            newPanel.classList.add('is-active', 'is-entering');
+            newPanel.addEventListener('animationend', function handleEnter() {
+                newPanel.classList.remove('is-entering');
+                newPanel.removeEventListener('animationend', handleEnter);
+            }, { once: true });
+        }
+
+        navButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                activatePanel(button.dataset.target);
+            });
+
+            button.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    activatePanel(button.dataset.target);
+                }
+            });
+        });
+    </script>
+</body>
 </html>
