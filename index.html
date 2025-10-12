@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-o9N1j7kGStz2cW6gycG8zp1C2JbE1q9I5xHBO5M5C2k=" crossorigin="">
 </head>
 <body>
     <header class="hero" role="banner">
@@ -90,6 +91,13 @@
                     </ul>
                 </article>
             </div>
+            <section class="panel-map" data-general data-map-wrapper>
+                <div class="panel-map__header">
+                    <h3>Localización del reto ambiental</h3>
+                    <p data-map-description></p>
+                </div>
+                <div class="panel-map__view" id="topic-map" role="img" aria-label="Mapa interactivo de la localización seleccionada"></div>
+            </section>
             <div class="sources" data-sources hidden>
                 <article class="source-group">
                     <h3>💧 Crisis del agua dulce y sequías extremas</h3>
@@ -140,6 +148,7 @@
         <p>© 2025 Proyecto Infoweb · Datos y visualizaciones educativas.</p>
     </footer>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-oLe0VgiP2pr3D1n7HMTKXwL8L0LZ8pgiJTsbQyP3pP8=" crossorigin=""></script>
     <script>
         const navButtons = document.querySelectorAll('.tab-nav__button');
         const panel = document.querySelector('#panel-dynamic');
@@ -156,6 +165,9 @@
         const panelImage = panel.querySelector('[data-panel-image]');
         const panelCredit = panel.querySelector('[data-panel-credit]');
         const mediaGallery = panel.querySelector('[data-media-gallery]');
+        const mapWrapper = panel.querySelector('[data-map-wrapper]');
+        const mapDescription = panel.querySelector('[data-map-description]');
+        const mapContainer = panel.querySelector('#topic-map');
         const generalSections = panel.querySelectorAll('[data-general]');
         const sourcesWrapper = panel.querySelector('[data-sources]');
 
@@ -192,6 +204,11 @@
                 highlight: {
                     title: 'Ejemplo real — Embalse de la Sau, Cataluña',
                     body: 'En 2023 y 2024, el pantano de Sau llegó a niveles inferiores al 5&nbsp;% de su capacidad por falta de lluvias y sobreexplotación del recurso. Imágenes de iglesias emergiendo de las aguas secas se hicieron virales, mostrando la gravedad de la sequía en la cuenca mediterránea.'
+                },
+                map: {
+                    coordinates: [41.9814, 2.3859],
+                    zoom: 12,
+                    description: 'Embalse de Sau, Les Masies de Roda, Cataluña (España).'
                 },
                 impacts: {
                     environment: 'Los ecosistemas acuáticos colapsan cuando desaparecen caudales mínimos: peces mueren, aves migratorias pierden zonas de descanso y la calidad del agua se degrada, favoreciendo algas tóxicas. Además, los suelos pierden humedad y biodiversidad, acelerando procesos de desertificación.',
@@ -241,6 +258,11 @@
                 highlight: {
                     title: 'Ejemplo real — Gran Mancha de Basura del Pacífico',
                     body: 'Esta acumulación de plásticos en el océano Pacífico, del tamaño de varios países juntos, contiene millones de toneladas de desechos arrastrados por corrientes marinas y se ha convertido en símbolo de la contaminación global.'
+                },
+                map: {
+                    coordinates: [32.5, -137.8],
+                    zoom: 4,
+                    description: 'Great Pacific Garbage Patch, giro subtropical del Pacífico Norte.'
                 },
                 impacts: {
                     environment: 'La fauna marina ingiere plásticos, provocando asfixia y muerte en tortugas, aves y peces. Los microplásticos se integran en la cadena trófica y afectan organismos desde el zooplancton hasta grandes depredadores. Ecosistemas costeros se alteran, dañando arrecifes y manglares.',
@@ -294,6 +316,11 @@
                     title: 'Ejemplo real — Amazonía y palma aceitera en Indonesia',
                     body: 'La Amazonía pierde miles de hectáreas cada día, principalmente para ganadería y soja. En el sudeste asiático, bosques tropicales son talados para plantar palma aceitera, afectando especies como orangutanes y tigres de Sumatra.'
                 },
+                map: {
+                    coordinates: [-2.65, 111.71],
+                    zoom: 7,
+                    description: 'Regencia de Kotawaringin Oriental, Kalimantan Central (Indonesia), frente de expansión de palma aceitera.'
+                },
                 impacts: {
                     environment: 'La tala reduce la capacidad de absorción de CO₂, acelera el cambio climático y destruye hábitats críticos. Los suelos se degradan y aumenta el riesgo de incendios. Al perder bosques, disminuye la regulación natural del ciclo del agua y la biodiversidad colapsa.',
                     people: 'Comunidades indígenas pierden territorios y medios de vida. Agricultores locales sufren erosión y menor fertilidad del suelo a largo plazo. La pérdida de bosques afecta el clima regional y, con ello, cultivos y disponibilidad de agua. El ecoturismo y la recolección sostenible de productos forestales se desploman.'
@@ -346,6 +373,11 @@
                 highlight: {
                     title: 'Ejemplo real — Contaminación del Mar Menor (Murcia)',
                     body: 'El Mar Menor, la mayor laguna salada de Europa, ha sufrido varios episodios de anoxia y mortandad masiva de peces (2016, 2019 y 2021) debido al exceso de nutrientes, especialmente nitratos y fosfatos, procedentes de la agricultura intensiva del Campo de Cartagena. Estas sustancias llegan a través de acuíferos subterráneos y ramblas, generando un colapso del ecosistema.'
+                },
+                map: {
+                    coordinates: [37.7412, -0.7919],
+                    zoom: 11,
+                    description: 'Mar Menor y Campo de Cartagena, Región de Murcia (España).'
                 },
                 impacts: {
                     environment: 'La eutrofización provoca proliferación de algas y pérdida de oxígeno en el agua, causando muerte de peces, caballitos de mar y moluscos. Los prados de fanerógamas marinas, esenciales para filtrar nutrientes y dar refugio a la fauna, han disminuido drásticamente. Además, la alteración química del agua afecta la salinidad y favorece especies invasoras.',
@@ -415,7 +447,30 @@
             }
         };
 
+        let mapInstance;
+        let mapMarker;
         let activeTopic = 'agua';
+
+        function ensureMap() {
+            if (!mapContainer || mapInstance) {
+                return;
+            }
+
+            mapInstance = L.map(mapContainer, {
+                zoomControl: true,
+                scrollWheelZoom: false,
+                dragging: true
+            });
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+            }).addTo(mapInstance);
+
+            mapMarker = L.marker([0, 0], {
+                keyboard: false
+            }).addTo(mapInstance);
+        }
 
         function toggleSections(showSources) {
             generalSections.forEach((section) => {
@@ -491,6 +546,21 @@
                     panelCredit.textContent = '';
                     panelCredit.setAttribute('hidden', '');
                     mediaGallery.innerHTML = '';
+                }
+                if (topic.map) {
+                    ensureMap();
+                    mapWrapper.removeAttribute('hidden');
+                    mapDescription.textContent = topic.map.description || '';
+                    if (mapInstance && mapMarker) {
+                        mapMarker.setLatLng(topic.map.coordinates);
+                        mapInstance.setView(topic.map.coordinates, topic.map.zoom || 10);
+                        requestAnimationFrame(() => {
+                            mapInstance.invalidateSize();
+                        });
+                    }
+                } else if (mapWrapper) {
+                    mapWrapper.setAttribute('hidden', '');
+                    mapDescription.textContent = '';
                 }
                 highlightTitle.textContent = topic.highlight.title;
                 highlightBody.innerHTML = topic.highlight.body;
