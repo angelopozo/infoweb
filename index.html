@@ -50,6 +50,13 @@
                     <p data-panel-description>El agotamiento de embalses, la sobreexplotación de acuíferos y las sequías cada vez más largas amenazan a comunidades enteras y ponen en jaque la seguridad hídrica.</p>
                 </div>
             </header>
+            <div class="panel-media" data-general data-media-wrapper>
+                <figure class="panel-media__featured">
+                    <img data-panel-image src="" alt="" loading="lazy">
+                    <figcaption class="panel-media__credit" data-panel-credit></figcaption>
+                </figure>
+                <div class="panel-media__gallery" data-media-gallery></div>
+            </div>
             <div class="panel-highlight" data-general>
                 <h3 data-highlight-title>Ejemplo real — Embalse de la Sau, Cataluña</h3>
                 <p data-highlight-body>En 2023 y 2024, el pantano de Sau llegó a niveles inferiores al 5&nbsp;% de su capacidad por falta de lluvias y sobreexplotación del recurso. Imágenes de iglesias emergiendo de las aguas secas se hicieron virales, mostrando la gravedad de la sequía en la cuenca mediterránea.</p>
@@ -145,6 +152,10 @@
         const impactPeople = panel.querySelector('[data-impact-people]');
         const measuresList = panel.querySelector('[data-measures-list]');
         const criticismsList = panel.querySelector('[data-criticisms-list]');
+        const mediaWrapper = panel.querySelector('[data-media-wrapper]');
+        const panelImage = panel.querySelector('[data-panel-image]');
+        const panelCredit = panel.querySelector('[data-panel-credit]');
+        const mediaGallery = panel.querySelector('[data-media-gallery]');
         const generalSections = panel.querySelectorAll('[data-general]');
         const sourcesWrapper = panel.querySelector('[data-sources]');
 
@@ -154,6 +165,30 @@
                 icon: '💧',
                 title: 'Crisis del agua dulce y sequías extremas',
                 description: 'El agotamiento de embalses, la sobreexplotación de acuíferos y las sequías cada vez más largas amenazan a comunidades enteras y ponen en jaque la seguridad hídrica.',
+                media: {
+                    featured: {
+                        src: 'assets/img/sau.jpg',
+                        alt: 'Vista aérea del embalse de Sau con niveles muy bajos de agua',
+                        credit: 'Crédito: Agència Catalana de l’Aigua'
+                    },
+                    gallery: [
+                        {
+                            src: 'assets/img/suelo_seco.jpg',
+                            alt: 'Suelo agrietado por la sequía',
+                            caption: 'Sequías prolongadas agrietan los suelos agrícolas y reducen su capacidad de retener agua.'
+                        },
+                        {
+                            src: 'assets/img/humedales.jpg',
+                            alt: 'Humedal restaurado con vegetación verde',
+                            caption: 'La restauración de humedales crea reservas naturales de agua y biodiversidad.'
+                        },
+                        {
+                            src: 'assets/img/riego_inteligente.png',
+                            alt: 'Sistema de riego por goteo automatizado en un cultivo',
+                            caption: 'El riego inteligente reduce pérdidas y dirige el agua justo donde la planta lo necesita.'
+                        }
+                    ]
+                },
                 highlight: {
                     title: 'Ejemplo real — Embalse de la Sau, Cataluña',
                     body: 'En 2023 y 2024, el pantano de Sau llegó a niveles inferiores al 5&nbsp;% de su capacidad por falta de lluvias y sobreexplotación del recurso. Imágenes de iglesias emergiendo de las aguas secas se hicieron virales, mostrando la gravedad de la sequía en la cuenca mediterránea.'
@@ -179,6 +214,30 @@
                 icon: '🧴',
                 title: 'Plásticos y microplásticos en océanos y alimentos',
                 description: 'La producción masiva de plásticos y su dispersión global amenazan la vida marina, contaminan los alimentos y generan pérdidas económicas significativas.',
+                media: {
+                    featured: {
+                        src: 'assets/img/gran_mancha_pacifico.jpg',
+                        alt: 'Densa acumulación de residuos flotando en el océano Pacífico',
+                        credit: 'Crédito: The Ocean Cleanup'
+                    },
+                    gallery: [
+                        {
+                            src: 'assets/img/tortuga_plastico.jpg',
+                            alt: 'Tortuga nadando junto a una bolsa plástica',
+                            caption: 'Las tortugas confunden bolsas con medusas y pueden ingerirlas o quedar atrapadas.'
+                        },
+                        {
+                            src: 'assets/img/plasticos_mar.jpg',
+                            alt: 'Red de plástico atrapada en el mar',
+                            caption: 'Las redes fantasma continúan pescando y dañando la vida marina durante años.'
+                        },
+                        {
+                            src: 'assets/img/microplasticos_comida.jpg',
+                            alt: 'Microplásticos sobre un plato con cubiertos',
+                            caption: 'Partículas microscópicas ya han sido detectadas en alimentos cotidianos.'
+                        }
+                    ]
+                },
                 highlight: {
                     title: 'Ejemplo real — Gran Mancha de Basura del Pacífico',
                     body: 'Esta acumulación de plásticos en el océano Pacífico, del tamaño de varios países juntos, contiene millones de toneladas de desechos arrastrados por corrientes marinas y se ha convertido en símbolo de la contaminación global.'
@@ -204,6 +263,33 @@
                 icon: '🌳',
                 title: 'Deforestación masiva ligada a cultivos industriales',
                 description: 'La pérdida acelerada de bosques tropicales compromete la captura de carbono, destruye hábitats clave y desestabiliza comunidades que dependen del bosque.',
+                media: {
+                    featured: {
+                        src: 'assets/img/deforestacion.jpg',
+                        alt: 'Máquinas pesadas talando un bosque tropical',
+                        credit: 'Crédito: Greenpeace International'
+                    },
+                    gallery: [
+                        {
+                            src: 'https://images.unsplash.com/photo-1581594549595-35f6ed9c66cb?auto=format&fit=crop&w=1200&q=80',
+                            alt: 'Plantación de palma aceitera tras la tala del bosque',
+                            caption: 'Las plantaciones de palma sustituyen bosques biodiversos en el sudeste asiático.',
+                            credit: 'Foto: Gabriel Izgi / Unsplash'
+                        },
+                        {
+                            src: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1200&q=80',
+                            alt: 'Incendio forestal consumiendo árboles en una colina',
+                            caption: 'La deforestación abre paso a incendios más intensos y frecuentes.',
+                            credit: 'Foto: Matt Palmer / Unsplash'
+                        },
+                        {
+                            src: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80',
+                            alt: 'Comunidades indígenas navegando por un río amazónico',
+                            caption: 'Pueblos originarios ven amenazado su territorio y sustento por la pérdida de bosque.',
+                            credit: 'Foto: Alex Azabache / Unsplash'
+                        }
+                    ]
+                },
                 highlight: {
                     title: 'Ejemplo real — Amazonía y palma aceitera en Indonesia',
                     body: 'La Amazonía pierde miles de hectáreas cada día, principalmente para ganadería y soja. En el sudeste asiático, bosques tropicales son talados para plantar palma aceitera, afectando especies como orangutanes y tigres de Sumatra.'
@@ -230,6 +316,33 @@
                 icon: '⚡',
                 title: 'Contaminación por nitratos en acuíferos agrícolas y agua potable',
                 description: 'El uso intensivo de fertilizantes y las filtraciones agrícolas saturan los acuíferos, desencadenando crisis ambientales y sanitarias en las regiones agrícolas.',
+                media: {
+                    featured: {
+                        src: 'assets/img/peces_muertos.jpg',
+                        alt: 'Peces muertos acumulados en la orilla de una laguna',
+                        credit: 'Crédito: Asociación de Naturalistas del Sureste'
+                    },
+                    gallery: [
+                        {
+                            src: 'https://images.unsplash.com/photo-1524820828601-597e1dca1335?auto=format&fit=crop&w=1200&q=80',
+                            alt: 'Sistema de riego pivot en un campo agrícola',
+                            caption: 'El riego intensivo en monocultivos incrementa la filtración de nitratos a los acuíferos.',
+                            credit: 'Foto: Johannes Plenio / Unsplash'
+                        },
+                        {
+                            src: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80',
+                            alt: 'Floración de algas verdes en la superficie de un lago',
+                            caption: 'El exceso de nutrientes provoca proliferaciones de algas y episodios de anoxia.',
+                            credit: 'Foto: Ivan Bandura / Unsplash'
+                        },
+                        {
+                            src: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80',
+                            alt: 'Paisaje agrícola con múltiples balsas de riego',
+                            caption: 'Las balsas de retención y filtros verdes ayudan a frenar las escorrentías contaminadas.',
+                            credit: 'Foto: Tom Podmore / Unsplash'
+                        }
+                    ]
+                },
                 highlight: {
                     title: 'Ejemplo real — Contaminación del Mar Menor (Murcia)',
                     body: 'El Mar Menor, la mayor laguna salada de Europa, ha sufrido varios episodios de anoxia y mortandad masiva de peces (2016, 2019 y 2021) debido al exceso de nutrientes, especialmente nitratos y fosfatos, procedentes de la agricultura intensiva del Campo de Cartagena. Estas sustancias llegan a través de acuíferos subterráneos y ramblas, generando un colapso del ecosistema.'
@@ -335,6 +448,11 @@
 
             if (topic.type === 'sources') {
                 toggleSections(true);
+                panelImage.removeAttribute('src');
+                panelImage.alt = '';
+                panelCredit.textContent = '';
+                panelCredit.setAttribute('hidden', '');
+                mediaGallery.innerHTML = '';
                 sourcesWrapper.innerHTML = topic.groups.map((group) => `
                     <article class="source-group">
                         <h3>${group.heading}</h3>
@@ -345,6 +463,35 @@
                 `).join('');
             } else {
                 toggleSections(false);
+                if (topic.media) {
+                    mediaWrapper.removeAttribute('hidden');
+                    const featured = topic.media.featured || {};
+                    const galleryItems = Array.isArray(topic.media.gallery) ? topic.media.gallery : [];
+                    if (featured.src) {
+                        panelImage.src = featured.src;
+                    } else {
+                        panelImage.removeAttribute('src');
+                    }
+                    panelImage.alt = featured.alt || '';
+                    panelCredit.textContent = featured.credit || '';
+                    panelCredit.toggleAttribute('hidden', !featured.credit);
+                    mediaGallery.innerHTML = galleryItems.map((item) => `
+                        <figure class="panel-media__item">
+                            <img src="${item.src}" alt="${item.alt}" loading="lazy">
+                            <figcaption>
+                                <p>${item.caption}</p>
+                                ${item.credit ? `<span>${item.credit}</span>` : ''}
+                            </figcaption>
+                        </figure>
+                    `).join('');
+                } else {
+                    mediaWrapper.setAttribute('hidden', '');
+                    panelImage.removeAttribute('src');
+                    panelImage.alt = '';
+                    panelCredit.textContent = '';
+                    panelCredit.setAttribute('hidden', '');
+                    mediaGallery.innerHTML = '';
+                }
                 highlightTitle.textContent = topic.highlight.title;
                 highlightBody.innerHTML = topic.highlight.body;
                 impactEnvironment.innerHTML = topic.impacts.environment;
