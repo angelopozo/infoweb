@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-o9N1j7kGStz2cW6gycG8zp1C2JbE1q9I5xHBO5M5C2k=" crossorigin="">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 <body>
     <header class="hero" role="banner">
@@ -148,7 +148,7 @@
         <p>© 2025 Proyecto Infoweb · Datos y visualizaciones educativas.</p>
     </footer>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-oLe0VgiP2pr3D1n7HMTKXwL8L0LZ8pgiJTsbQyP3pP8=" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script>
         const navButtons = document.querySelectorAll('.tab-nav__button');
         const panel = document.querySelector('#panel-dynamic');
@@ -452,24 +452,37 @@
         let activeTopic = 'agua';
 
         function ensureMap() {
-            if (!mapContainer || mapInstance) {
-                return;
+            if (!mapContainer) {
+                return null;
             }
 
-            mapInstance = L.map(mapContainer, {
+            const leaflet = typeof window !== 'undefined' ? window.L : undefined;
+
+            if (typeof leaflet === 'undefined') {
+                console.warn('Leaflet no se ha cargado correctamente, se omite el mapa interactivo.');
+                return null;
+            }
+
+            if (mapInstance) {
+                return mapInstance;
+            }
+
+            mapInstance = leaflet.map(mapContainer, {
                 zoomControl: true,
                 scrollWheelZoom: false,
                 dragging: true
             });
 
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            leaflet.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
                 maxZoom: 19,
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
             }).addTo(mapInstance);
 
-            mapMarker = L.marker([0, 0], {
+            mapMarker = leaflet.marker([0, 0], {
                 keyboard: false
             }).addTo(mapInstance);
+
+            return mapInstance;
         }
 
         function toggleSections(showSources) {
@@ -548,15 +561,20 @@
                     mediaGallery.innerHTML = '';
                 }
                 if (topic.map) {
-                    ensureMap();
-                    mapWrapper.removeAttribute('hidden');
-                    mapDescription.textContent = topic.map.description || '';
-                    if (mapInstance && mapMarker) {
-                        mapMarker.setLatLng(topic.map.coordinates);
-                        mapInstance.setView(topic.map.coordinates, topic.map.zoom || 10);
+                    const map = ensureMap();
+                    if (map) {
+                        mapWrapper.removeAttribute('hidden');
+                        mapDescription.textContent = topic.map.description || '';
+                        if (mapMarker) {
+                            mapMarker.setLatLng(topic.map.coordinates);
+                        }
+                        map.setView(topic.map.coordinates, topic.map.zoom || 10);
                         requestAnimationFrame(() => {
-                            mapInstance.invalidateSize();
+                            map.invalidateSize();
                         });
+                    } else if (mapWrapper) {
+                        mapWrapper.setAttribute('hidden', '');
+                        mapDescription.textContent = '';
                     }
                 } else if (mapWrapper) {
                     mapWrapper.setAttribute('hidden', '');
