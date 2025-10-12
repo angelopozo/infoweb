@@ -172,7 +172,7 @@ body {
 .section-header {
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 10000;
     width: 100%;
     height: 140px;
     display: flex;
@@ -557,6 +557,8 @@ strong {
 
 
 
+/* Reto deforrestación */
+/* Iniciativas y Soluciones */
 
 /* Reto microplasticos */ 
 /* La Lucha Contra el Plástico */
@@ -603,6 +605,108 @@ strong {
     line-height: 1.6;
     color: rgb(46, 45, 45);
 }
+
+/* Reto deforrestación */
+/* Impacto medioambiental */
+
+.stats-grid {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.stat-item {
+    background-color: white;
+    border-top: 5px solid green; 
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+}
+
+.stat-item span {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: green;
+    margin-bottom: 1rem;
+}
+
+.stat-item h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: rgb(46, 45, 45);
+    margin-bottom: 0.75rem;
+}
+
+.stat-item p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: grey;
+}
+
+
+
+/* Reto deforrestación */
+/* Impacto humano y económico */
+
+.article-card {
+    display: flex;
+    flex-direction: column; 
+    max-width: 800px; 
+    margin: 2rem auto; 
+    background-color: white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.article-card-image img {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover;
+    display: block; 
+}
+
+.article-card-content {
+    padding: 2rem;
+}
+
+.article-card-content blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #333;
+    margin: 0 0 1.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.article-card-content p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
 
 
 
